@@ -1,14 +1,6 @@
-// java server page == jsp == pagina dinamica java
-
-<%
-// scriptlet
-String nomeEmpresa = (String)req.getAttribute("empresa");
-System.out.println(nomeEmpresa);
-%>
-
+// usar expressao == ${}
 <html>
 <body>
-// <% out.nomeEmpresa %>
-Empresa <%= nomeEmpresa %> cadastrada com sucesso
+Empresa ${ empresa } cadastrada com sucesso
 </body>
 </html>
