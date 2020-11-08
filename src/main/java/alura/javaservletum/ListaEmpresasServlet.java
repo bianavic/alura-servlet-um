@@ -12,10 +12,6 @@ import java.util.List;
 @WebServlet("web/listaEmpresas")
 public class ListaEmpresasServlet extends HttpServlet {
 
-    public ListaEmpresasServlet() {
-        super();
-    }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

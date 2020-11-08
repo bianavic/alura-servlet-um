@@ -4,6 +4,7 @@ import org.springframework.web.bind.ServletRequestParameterPropertyValues;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -11,12 +12,9 @@ import java.io.PrintWriter;
 
 // estendendo para criar uma classe servlet
 @WebServlet(urlPatterns = "/hello") // anotacao para mapear a URL para uma servlet
-public class HelloServletWorld extends ServletRequestParameterPropertyValues {
+public class HelloServletWorld extends HttpServlet {
 
-    public HelloServletWorld(ServletRequest request) {
-        super(request);
-    }
-
+    @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
         // definir a resposta
         PrintWriter out = res.getWriter();
