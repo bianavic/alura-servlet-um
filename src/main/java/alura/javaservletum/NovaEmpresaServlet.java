@@ -14,12 +14,13 @@ public class NovaEmpresaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.service(req, resp);
+        System.out.println("Cadastrando nova empresa");
+
         String nomeEmpresa = req.getParameter("Caramelos");
-    System.out.println("Cadastrando nova empresa");
-    PrintWriter out = resp.getWriter();
-    out.println("<html><body>Empresa" + nomeEmpresa + "cadastrada com sucesso</body></html>");
+        PrintWriter out = resp.getWriter();
+        out.println("<html><body>Empresa" + nomeEmpresa + "cadastrada com sucesso</body></html>");
 
     }
 }
