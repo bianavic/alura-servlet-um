@@ -10,11 +10,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 // estendendo para criar uma classe servlet
-@WebServlet(urlPatterns = "/hello") // marca a classe como servlet e registra a url
+@WebServlet(urlPatterns = "/hello") // anotacao para mapear a URL para uma servlet
 public class HelloServletWorld extends ServletRequestParameterPropertyValues {
 
-    protected void HelloServletWorld(HttpServletRequest request, HttpServletResponse res) throws IOException {
+    public HelloServletWorld(ServletRequest request) {
+        super(request);
+    }
 
+    protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
         // definir a resposta
         PrintWriter out = res.getWriter();
         out.println("<html>");
@@ -24,9 +27,6 @@ public class HelloServletWorld extends ServletRequestParameterPropertyValues {
         out.println("</html>");
 
         System.out.println("O HelloServletWorld está rodando");
-    }
 
-    public HelloServletWorld(ServletRequest request) {
-        super(request);
     }
 }
