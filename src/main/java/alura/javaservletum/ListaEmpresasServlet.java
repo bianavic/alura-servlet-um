@@ -1,5 +1,6 @@
 package alura.javaservletum;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,19 +20,10 @@ public class ListaEmpresasServlet extends HttpServlet {
         Banco banco = new Banco();
         List<Empresa> listaEmpresas = banco.getEmpresas();
 
-//        HttpServletResponse response;
-        PrintWriter out = resp.getWriter();
-        out.println("<html>");
-        out.println("<body>");
-        out.println("<ul>");
+        req.setAttribute("empresas", listaEmpresas);
 
-        for (Empresa empresa : listaEmpresas) {
-            out.println("<li>" + empresa.getNome() + "</li>");
-        }
-
-        out.println("</ul>");
-        out.println("</body>");
-        out.println("</html>");
+        RequestDispatcher rd = req.getRequestDispatcher("/listaEmpresas.jsp");
+        rd.forward(req, resp);
 
     }
 }
