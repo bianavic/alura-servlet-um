@@ -11,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet("web/novaEmpresa")
+@WebServlet("/novaEmpresa")
 public class NovaEmpresaServlet extends HttpServlet {
 
     @Override
@@ -40,9 +40,11 @@ public class NovaEmpresaServlet extends HttpServlet {
         banco.adiciona(empresa);
 
         req.setAttribute("empresa", empresa.getNome());
+        // redirecionar pelo navegador
         resp.sendRedirect("listaEmpresas");
 
         // chamar o JPS
+        // redirecionar pelo servidor
         RequestDispatcher rd = req.getRequestDispatcher("/listaEmpresas");
         req.setAttribute("empresa", empresa.getNome());
         rd.forward(req, resp);
